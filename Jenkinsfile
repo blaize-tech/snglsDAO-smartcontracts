@@ -16,25 +16,14 @@ pipeline {
         }
       }
     }
-    stage('BUILD') {
-      parallel {
-        stage('build web') {
-          steps {
-            nodejs('nodejs-10') {
-              sh 'printenv'
-              sh 'npm run build'
-            }
-          }
-        }
+    stage('Deliver for development') {
+      when {
+        branch 'add_jenkins'
       }
-    }
-    stage('Archive') {
-      parallel {
-        stage('archive web') {
-          steps {
-            /* this list should match the list of api volumes in docker-compose.yml! */
-            archiveArtifacts(artifacts: 'dao-web-app/dist/', onlyIfSuccessful: true)
-          }
+      steps {
+        nodejs('nodejs-10') {
+          sh 'npm run build'
+          archiveArtifacts(artifacts: 'dao-web-app/dist/', onlyIfSuccessful: true)
         }
       }
     }
