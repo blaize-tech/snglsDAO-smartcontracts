@@ -19,7 +19,7 @@ pipeline {
     stage('BUILD') {
       steps {
         nodejs('nodejs-10') {
-          sh 'cd dao-web-app/ && npm build-dev'
+          sh 'cd dao-web-app/ && npm run build-dev'
         }
       }
     }
