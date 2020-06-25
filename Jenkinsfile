@@ -16,15 +16,31 @@ pipeline {
         }
       }
     }
-    stage('Deliver for development') {
+    stage('BUILD') {
+      steps {
+        nodejs('nodejs-10') {
+          sh 'cd dao-web-app/ && npm build-dev'
+        }
+      }
+    }
+    stage('webpack rinkeby develop branch') {
       when {
-        branch 'add_jenkins'
+        branch 'develop'
       }
       steps {
         nodejs('nodejs-10') {
-          sh 'npm run build'
+          sh 'cd dao-web-app/ && npm run build-rinkeby'
           archiveArtifacts(artifacts: 'dao-web-app/dist/', onlyIfSuccessful: true)
         }
+      }
+    }
+    stage('webpack main master branch') {
+      when {
+        branch 'master'
+      }
+      steps {
+        sh 'cd dao-web-app/ && npm run build'
+        archiveArtifacts(artifacts: 'dao-web-app/dist/', onlyIfSuccessful: true)
       }
     }
   }
