@@ -280,7 +280,7 @@ class DaoDashboard extends React.Component<IProps, IState> {
 
                 </div>
                 <br/>
-                <h4>{t('dashboard.boostedProposals')}</h4>
+                <h4>{t('dashboard.boostedProposals').replace('%{num}', proposals.length)}</h4>
                 <InfiniteScroll
                     dataLength={proposals.length} //This is important field to render the next data
                     next={fetchMore}
