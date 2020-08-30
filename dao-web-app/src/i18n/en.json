@@ -129,7 +129,7 @@
         "orEnterManually": " or enter the amount manually:",
         "stake": "Stake",
         "unstake": "unstake",
-        "daoMembers": "DAO Members",
+        "daoMembers": "DAO Members ({num})",
         "name": "Name",
         "address": "Address",
         "reputation": "Reputation",

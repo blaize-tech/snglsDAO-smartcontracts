@@ -129,7 +129,7 @@
         "orEnterManually": " 或自行设置数值：",
         "stake": "质押",
         "unstake": "取消质押",
-        "daoMembers": "DAO会员",
+        "daoMembers": "DAO会员 ({num})",
         "name": "名称",
         "address": "钱包地址",
         "reputation": "声誉值",

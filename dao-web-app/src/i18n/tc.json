@@ -129,7 +129,7 @@
         "orEnterManually": " 或自行設置數值：",
         "stake": "質押",
         "unstake": "取消質押",
-        "daoMembers": "DAO會員",
+        "daoMembers": "DAO會員 ({num})",
         "name": "名稱",
         "address": "錢包地址",
         "reputation": "聲譽值",
